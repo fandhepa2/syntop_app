@@ -37,6 +37,7 @@ class LandingPage extends StatelessWidget {
               ),
             ),
           ),
+
           // Banner Scroll
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -135,45 +136,46 @@ class LandingPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        // type: BottomNavigationBarType.shifting,
-        currentIndex: 0,
-        selectedItemColor: primaryColor,
-        unselectedItemColor: blackColor,
-        backgroundColor: bgColor,
-        showSelectedLabels: true,
-        // selectedLabelStyle:
-        //     TextStyle(overflow: TextOverflow.visible, color: blackColor),
-        showUnselectedLabels: true,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: primaryColor,
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: greyColor,
-              ),
-              label: 'Cari'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: greyColor,
-              ),
-              label: 'Keranjang'),
-          BottomNavigationBarItem(
-            backgroundColor: bgColor,
-            icon: Icon(
-              Icons.account_circle_sharp,
-              color: blackColor,
-            ),
-            label: 'Profil',
-          ),
-        ],
-      ),
+
+      // bottomNavigationBar: BottomNavigationBar(
+      //   // type: BottomNavigationBarType.shifting,
+      //   currentIndex: 0,
+      //   selectedItemColor: primaryColor,
+      //   unselectedItemColor: blackColor,
+      //   backgroundColor: bgColor,
+      //   showSelectedLabels: true,
+      //   // selectedLabelStyle:
+      //   //     TextStyle(overflow: TextOverflow.visible, color: blackColor),
+      //   showUnselectedLabels: true,
+      //   items: [
+      //     BottomNavigationBarItem(
+      //         icon: Icon(
+      //           Icons.home,
+      //           color: primaryColor,
+      //         ),
+      //         label: 'Home'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(
+      //           Icons.search,
+      //           color: greyColor,
+      //         ),
+      //         label: 'Cari'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(
+      //           Icons.shopping_cart,
+      //           color: greyColor,
+      //         ),
+      //         label: 'Keranjang'),
+      //     BottomNavigationBarItem(
+      //       backgroundColor: bgColor,
+      //       icon: Icon(
+      //         Icons.account_circle_sharp,
+      //         color: blackColor,
+      //       ),
+      //       label: 'Profil',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

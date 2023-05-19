@@ -11,7 +11,7 @@ class EditProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
+        backgroundColor: Colors.transparent,
         title: Text("Edit Profile",
             style: blackTextStyle.copyWith(
                 fontWeight: FontWeight.w600, fontSize: 18)),
