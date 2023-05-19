@@ -8,6 +8,7 @@ import 'package:syntop_app/pages/sign_in_page.dart';
 import 'package:syntop_app/pages/sign_up_page.dart';
 import 'package:syntop_app/pages/splash_screen_page.dart';
 import 'package:syntop_app/pages/success.page.dart';
+import 'package:syntop_app/themes/themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: EditProfilePage(),
+      home: BerandaPage(),
     );
   }
 }
@@ -58,6 +59,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _pilihanbottom = 0;
+
+  final List<Widget> _children = [
+    BerandaPage(),
+    ProfilePage(),
+  ];
 
   void _incrementCounter() {
     setState(() {
@@ -67,6 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      int _pilihanbottom = index;
     });
   }
 
@@ -85,39 +98,52 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+        child: _children.elementAt(_pilihanbottom),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: true,
+        // selectedLabelStyle:
+        //     TextStyle(overflow: TextOverflow.visible, color: Colors.black),
+        // showUnselectedLabels: true,
+
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.grey,
+              ),
+              label: 'Beranda'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                color: Colors.grey,
+              ),
+              label: 'Cari'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.grey,
+              ),
+              label: 'Keranjang'),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle_sharp,
+              color: Colors.grey,
+            ),
+            label: 'Profil',
+          ),
+        ],
+        currentIndex: _pilihanbottom,
+        selectedItemColor: primaryColor,
+        onTap: _onItemTapped,
+        // selectedLabelStyle: const TextStyle(
+        //     overflow: TextOverflow.visible, fontSize: 10, color: Colors.black),
+        // showSelectedLabels: true,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
