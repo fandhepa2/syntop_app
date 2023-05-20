@@ -100,11 +100,11 @@ class LandingPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                     SizedBox(
                       width: 12,
                     ),
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                   ],
                 ),
                 SizedBox(
@@ -112,11 +112,11 @@ class LandingPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                     SizedBox(
                       width: 12,
                     ),
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                   ],
                 ),
                 SizedBox(
@@ -124,11 +124,11 @@ class LandingPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                     SizedBox(
                       width: 12,
                     ),
-                    ProdukPopulerWidget(),
+                    Expanded(child: ProdukPopulerWidget()),
                   ],
                 ),
               ],

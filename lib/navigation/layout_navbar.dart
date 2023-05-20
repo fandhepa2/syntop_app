@@ -21,6 +21,10 @@ class _LayoutNavigationBarState extends State<LayoutNavigationBar> {
     ProfilePage(),
   ];
 
+  // fUNCTION MERUBAH POSISI INDEX SAAT MENU DI KLIK
+  // int index merupakan parameter bertipe integer
+  // set state untuk merefresh
+
   void onBarTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -32,10 +36,9 @@ class _LayoutNavigationBarState extends State<LayoutNavigationBar> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
         selectedItemColor: primaryColor,
         unselectedItemColor: greyColor,
-        onTap: onBarTapped,
+
         items: [
           BottomNavigationBarItem(
               icon: Icon(
@@ -60,6 +63,9 @@ class _LayoutNavigationBarState extends State<LayoutNavigationBar> {
             label: 'Profil',
           ),
         ],
+        onTap: onBarTapped,
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed, // agar tidak berubah atau bergerak
       ),
     );
   }
