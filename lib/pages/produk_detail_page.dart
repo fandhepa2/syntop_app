@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:syntop_app/pages/shop_now_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -20,7 +21,7 @@ final List<String> imgList = [
 ];
 
 class _ProdukDetailPage extends State<ProdukDetailPage> {
-  int _qty = 01;
+  int _qty = 1;
 
   // Function tambah qty
   void addQty() {
@@ -222,19 +223,25 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                width: 150,
-                height: 45,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: primaryColor,
-                      width: 2,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ShopNowPage()));
+                },
+                child: Container(
+                  width: 150,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: primaryColor,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Center(
+                    child: Text(
+                      "Beli Sekarang",
+                      style: primaryTextStyle,
                     ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Center(
-                  child: Text(
-                    "Beli Sekarang",
-                    style: primaryTextStyle,
                   ),
                 ),
               ),

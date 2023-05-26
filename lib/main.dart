@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:syntop_app/navigation/layout_navbar.dart';
-import 'package:syntop_app/pages/beranda_page.dart';
+import 'package:syntop_app/pages/Checkout_page.dart';
+
 import 'package:syntop_app/pages/cart_page.dart';
 import 'package:syntop_app/pages/edit_profile_page.dart';
+import 'package:syntop_app/pages/history_page.dart';
 import 'package:syntop_app/pages/landing_page.dart';
 import 'package:syntop_app/pages/on_board_page.dart';
+import 'package:syntop_app/pages/produk_detail_page.dart';
 import 'package:syntop_app/pages/profile_page.dart';
 import 'package:syntop_app/pages/search_page.dart';
 import 'package:syntop_app/pages/sign_in_page.dart';
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(body: LayoutNavigationBar()),
+      home: Scaffold(body: HistoryPage()),
     );
   }
 }

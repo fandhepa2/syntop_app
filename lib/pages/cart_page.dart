@@ -10,13 +10,20 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text("Pesananmu",
             style: blackTextStyle.copyWith(
                 fontWeight: FontWeight.w600, fontSize: 18)),
-        leading: Icon(
-          Icons.arrow_back_ios_new_rounded,
-          color: Colors.black,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(
+                context); //untuk back sekali dan jika push untuk memilih mau kemana
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: blackColor,
+          ),
         ),
       ),
     );
