@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:syntop_app/pages/address_list_page.dart';
+import 'package:syntop_app/pages/edit_profile_page.dart';
+import 'package:syntop_app/pages/history_page.dart';
+import 'package:syntop_app/pages/payment_method_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -68,20 +72,28 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text("Edit Profil",
-                        style: blackTextStyle.copyWith(
-                            fontWeight: FontWeight.w600, fontSize: 12)),
-                    Spacer(),
-                    Transform.scale(
-                      scaleX: -1,
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: blackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditProfilePage()));
+                  },
+                  child: Row(
+                    children: [
+                      Text("Edit Profil",
+                          style: blackTextStyle.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 12)),
+                      Spacer(),
+                      Transform.scale(
+                        scaleX: -1,
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: blackColor,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
@@ -100,20 +112,28 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text("Daftar Alamat",
-                        style: blackTextStyle.copyWith(
-                            fontWeight: FontWeight.w600, fontSize: 12)),
-                    Spacer(),
-                    Transform.scale(
-                      scaleX: -1,
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: blackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AddressListPage()));
+                  },
+                  child: Row(
+                    children: [
+                      Text("Daftar Alamat",
+                          style: blackTextStyle.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 12)),
+                      Spacer(),
+                      Transform.scale(
+                        scaleX: -1,
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: blackColor,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
@@ -132,20 +152,26 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text("Riwayat Transaksi",
-                        style: blackTextStyle.copyWith(
-                            fontWeight: FontWeight.w600, fontSize: 12)),
-                    Spacer(),
-                    Transform.scale(
-                      scaleX: -1,
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: blackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HistoryPage()));
+                  },
+                  child: Row(
+                    children: [
+                      Text("Riwayat Transaksi",
+                          style: blackTextStyle.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 12)),
+                      Spacer(),
+                      Transform.scale(
+                        scaleX: -1,
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: blackColor,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
@@ -164,20 +190,28 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text("Metode Pembayaran",
-                        style: blackTextStyle.copyWith(
-                            fontWeight: FontWeight.w600, fontSize: 12)),
-                    Spacer(),
-                    Transform.scale(
-                      scaleX: -1,
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: blackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PaymentmethodPage()));
+                  },
+                  child: Row(
+                    children: [
+                      Text("Metode Pembayaran",
+                          style: blackTextStyle.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 12)),
+                      Spacer(),
+                      Transform.scale(
+                        scaleX: -1,
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: blackColor,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),

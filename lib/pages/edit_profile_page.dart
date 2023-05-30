@@ -11,13 +11,22 @@ class EditProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text("Edit Profile",
-            style: blackTextStyle.copyWith(
-                fontWeight: FontWeight.w600, fontSize: 18)),
-        leading: Icon(
-          Icons.arrow_back_ios_new_rounded,
-          color: Colors.black,
+        title: Text(
+          "Edit Profile",
+          style: blackTextStyle.copyWith(
+              fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: whiteColor,
+        elevation: 0, //mengatur bayangan
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(
+                context); //untuk back sekali dan jika push untuk memilih mau kemana
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: blackColor,
+          ),
         ),
       ),
       body: ListView(
@@ -128,27 +137,25 @@ class EditProfilePage extends StatelessWidget {
                       hintStyle: greyTextStyle,
                       border: InputBorder.none),
                 ),
-                SizedBox(
-                  height: 29,
-                ),
-                Container(
-                  height: 45,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: primaryColor),
-                  child: Center(
-                    child: Text(
-                      "Simpan",
-                      style: whiteTextStyle.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 40),
+        width: MediaQuery.of(context).size.width,
+        height: 45,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5), color: primaryColor),
+        child: Center(
+          child: Text(
+            "Simpan",
+            style: whiteTextStyle.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
       ),
     );
   }
