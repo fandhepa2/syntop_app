@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syntop_app/pages/add_address_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 
 class AddressListPage extends StatelessWidget {
@@ -27,14 +28,24 @@ class AddressListPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.only(right: 20, left: 20, top: 38),
-            padding: EdgeInsets.only(left: 10, top: 14, bottom: 13, right: 170),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: whiteColor),
-            child: Text(
-              "+ Tambahkan Alamat",
-              style: blackTextStyle.copyWith(fontWeight: FontWeight.bold),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddAddressPage(),
+                  ));
+            },
+            child: Container(
+              margin: EdgeInsets.only(right: 20, left: 20, top: 38),
+              padding:
+                  EdgeInsets.only(left: 10, top: 14, bottom: 13, right: 170),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: whiteColor),
+              child: Text(
+                "+ Tambahkan Alamat",
+                style: blackTextStyle.copyWith(fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           Container(

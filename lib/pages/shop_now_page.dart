@@ -243,7 +243,7 @@ class _ShopNowPageState extends State<ShopNowPage> {
                     fillColor: whiteColor,
                     hintStyle: TextStyle(fontSize: 15),
                     border: InputBorder.none,
-                    hintText: "Masukkan Nama Lengkap",
+                    hintText: "Nama Kelurahan",
                     contentPadding: EdgeInsets.all(15),
                   ),
                 ),
