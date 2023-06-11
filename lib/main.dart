@@ -8,6 +8,7 @@ import 'package:syntop_app/pages/edit_profile_page.dart';
 import 'package:syntop_app/pages/history_page.dart';
 import 'package:syntop_app/pages/landing_page.dart';
 import 'package:syntop_app/pages/on_board_page.dart';
+import 'package:syntop_app/pages/order_page.dart';
 import 'package:syntop_app/pages/payment_method_page.dart';
 import 'package:syntop_app/pages/produk_detail_page.dart';
 import 'package:syntop_app/pages/profile_page.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(body: CartPage()),
+      home: SplashScreenPage(),
     );
   }
 }

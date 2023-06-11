@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:syntop_app/pages/cart_page.dart';
 import 'package:syntop_app/pages/landing_page.dart';
+import 'package:syntop_app/pages/order_page.dart';
 import 'package:syntop_app/pages/profile_page.dart';
 import 'package:syntop_app/pages/search_page.dart';
 import 'package:syntop_app/themes/themes.dart';
@@ -16,8 +17,8 @@ class _LayoutNavigationBarState extends State<LayoutNavigationBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     LandingPage(),
-    CartPage(),
     SearchPage(),
+    OrderPage(),
     ProfilePage(),
   ];
 

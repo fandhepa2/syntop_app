@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syntop_app/pages/sign_in_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 
 class OnBoardPage extends StatelessWidget {
@@ -28,17 +29,24 @@ class OnBoardPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Container(
-              width: 150,
-              height: 45,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5), color: primaryColor),
-              child: Center(
-                child: Text(
-                  "Masuk",
-                  style: whiteTextStyle.copyWith(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => SignInPage()));
+              },
+              child: Container(
+                width: 150,
+                height: 45,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: primaryColor),
+                child: Center(
+                  child: Text(
+                    "Masuk",
+                    style: whiteTextStyle.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),

@@ -14,7 +14,7 @@ class CartPage extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: bgColor,
+        backgroundColor: whiteColor,
         appBar: AppBar(
           bottom: TabBar(
               unselectedLabelColor: blackColor,
