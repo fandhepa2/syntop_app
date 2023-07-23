@@ -15,7 +15,7 @@ class LayoutNavigationBar extends StatefulWidget {
 
 class _LayoutNavigationBarState extends State<LayoutNavigationBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [
+  static List<Widget> _children = [
     LandingPage(),
     SearchPage(),
     OrderPage(),

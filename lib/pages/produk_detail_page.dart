@@ -2,12 +2,17 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:syntop_app/config/config.dart';
+import 'package:syntop_app/models/product_model.dart';
 import 'package:syntop_app/pages/shop_now_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ProdukDetailPage extends StatefulWidget {
-  const ProdukDetailPage({super.key});
+  const ProdukDetailPage({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   State<ProdukDetailPage> createState() => _ProdukDetailPage();
@@ -127,17 +132,21 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
                 )),
           ),
           Container(
-            margin: EdgeInsets.only(top: 12, right: 20, left: 20),
+            margin: EdgeInsets.only(top: 12, right: 15, left: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Text(
-                      "Lenovo Thingkad T57s",
-                      style: blackTextStyle.copyWith(fontSize: 15),
+                    Container(
+                      width: 210,
+                      child: Text(
+                        widget.productModel.namaProduct,
+                        maxLines: 2,
+                        // overflow: TextOverflow.ellipsis,
+                        style: blackTextStyle.copyWith(fontSize: 15),
+                      ),
                     ),
-                    Spacer(),
                     Container(
                       child: IconButton(
                           onPressed: minusQty,
@@ -159,7 +168,8 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
                   ],
                 ),
                 Text(
-                  "Rp18.000.000",
+                  Config.convertToIdr(
+                      double.parse(widget.productModel.harga), 0),
                   style: blackTextStyle.copyWith(
                       fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -167,7 +177,7 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
                   children: [
                     RatingBar.builder(
                       itemSize: 20,
-                      initialRating: 4.5,
+                      initialRating: double.parse(widget.productModel.rating),
                       minRating: 1,
                       direction: Axis.horizontal,
                       allowHalfRating: true,
@@ -181,7 +191,7 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
                       },
                     ),
                     Text(
-                      "  4,5",
+                      " " + widget.productModel.rating,
                       style: greyTextStyle,
                     )
                   ],
@@ -194,10 +204,8 @@ class _ProdukDetailPage extends State<ProdukDetailPage> {
                   style: blackTextStyle.copyWith(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "Processor Up to 8th Gen Intel Core i5/i7 vPro\nFHD IPS Privacy Guard (1920 x 1080, 400nit)\nMemory Up to 32GB",
-                  style: blackTextStyle,
-                ),
+                // hapus widget text gantikan dengan Htmlwidget untuk mengambil spesifikasi dari database
+                HtmlWidget(widget.productModel.spesifikasi),
                 SizedBox(
                   height: 30,
                 ),

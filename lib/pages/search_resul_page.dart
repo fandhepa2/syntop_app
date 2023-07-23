@@ -59,47 +59,11 @@ class _SearchResultPageState extends State<SearchResultPage> {
               ),
               Row(
                 children: [
-                  Expanded(child: ProdukPopulerWidget()),
+                  // Expanded(child: ProdukPopulerWidget()),
                   SizedBox(
                     width: 12,
                   ),
-                  Expanded(child: ProdukPopulerWidget()),
-                ],
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Row(
-                children: [
-                  Expanded(child: ProdukPopulerWidget()),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(child: ProdukPopulerWidget()),
-                ],
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Row(
-                children: [
-                  Expanded(child: ProdukPopulerWidget()),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(child: ProdukPopulerWidget()),
-                ],
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Row(
-                children: [
-                  Expanded(child: ProdukPopulerWidget()),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(child: ProdukPopulerWidget()),
+                  // Expanded(child: ProdukPopulerWidget()),
                 ],
               ),
             ],

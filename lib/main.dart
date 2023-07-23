@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:syntop_app/navigation/layout_navbar.dart';
 import 'package:syntop_app/pages/Checkout_page.dart';
 import 'package:syntop_app/pages/address_list_page.dart';
@@ -19,7 +21,9 @@ import 'package:syntop_app/pages/splash_screen_page.dart';
 import 'package:syntop_app/pages/success.page.dart';
 import 'package:syntop_app/navigation/layout_navbar.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
   runApp(const MyApp());
 }
 
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.

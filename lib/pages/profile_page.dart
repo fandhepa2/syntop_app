@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
+import 'package:syntop_app/controllers/auth_controller.dart';
 import 'package:syntop_app/pages/address_list_page.dart';
 import 'package:syntop_app/pages/edit_profile_page.dart';
 import 'package:syntop_app/pages/history_page.dart';
@@ -11,7 +14,10 @@ import 'package:syntop_app/pages/payment_method_page.dart';
 import 'package:syntop_app/themes/themes.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+
+// panggi dulu controller yang akan digunakan
+  final authL = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +52,10 @@ class ProfilePage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text("Adam Jhonson",
+                Text(SpUtil.getString("nama_user").toString(),
                     style: blackTextStyle.copyWith(
                         fontSize: 18, fontWeight: FontWeight.w600)),
-                Text("adam123@gmail.com",
+                Text(SpUtil.getString("email_user").toString(),
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     )),
@@ -212,6 +218,48 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                )
+              ],
+            ),
+          ),
+
+          Spacer(),
+
+          // SECTION 6 METODE PEMBAYARAN
+
+          Container(
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: blackColor)),
+            ),
+            margin: EdgeInsets.only(right: 20, left: 20, top: 25),
+            padding: EdgeInsets.only(bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        authL.logout();
+                      },
+                      child: Obx(
+                        () => Text(
+                            authL.isLoading == false
+                                ? "Sign out"
+                                : "Sign Out ...",
+                            style: blackTextStyle.copyWith(
+                                fontWeight: FontWeight.w600, fontSize: 12)),
+                      ),
+                    ),
+                    Spacer(),
+                    Transform.scale(
+                      scaleX: -1,
+                      child: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: blackColor,
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),

@@ -3,13 +3,19 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:syntop_app/navigation/layout_navbar.dart';
 import 'package:syntop_app/pages/landing_page.dart';
+import 'package:syntop_app/pages/sign_up_page.dart';
 import 'package:syntop_app/themes/themes.dart';
+import 'package:get/get.dart';
+import 'package:syntop_app/controllers/auth_controller.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+  SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // final AUTHCONTROLLER
+    final authH = Get.put(AuthController());
+
     return Scaffold(
       backgroundColor: bgColor,
       body: ListView(
@@ -43,17 +49,18 @@ class SignInPage extends StatelessWidget {
               // untuk vertical menggunakan main axisalignment
               children: [
                 Text(
-                  "Username",
+                  "Email",
                   style: blackTextStyle.copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 23,
                 ),
                 TextFormField(
+                  controller: authH.email,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: whiteColor,
-                      hintText: "Masukkan Username",
+                      hintText: "Masukkan Email",
                       hintStyle: greyTextStyle,
                       border: InputBorder.none),
                 ),
@@ -68,6 +75,7 @@ class SignInPage extends StatelessWidget {
                   height: 23,
                 ),
                 TextFormField(
+                  controller: authH.password,
                   decoration: InputDecoration(
                       suffix: Icon(
                         Icons.visibility_off,
@@ -94,16 +102,27 @@ class SignInPage extends StatelessWidget {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => LayoutNavigationBar()));
                   },
-                  child: Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: primaryColor),
-                    child: Center(
-                      child: Text(
-                        "Masuk",
-                        style: whiteTextStyle.copyWith(
-                          fontWeight: FontWeight.w600,
+                  child: InkWell(
+                    onTap: () {
+                      authH.login();
+                    },
+                    child: Container(
+                      height: 45,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: primaryColor),
+                      child: Center(
+                        child: Obx(
+                          () => authH.isLoading == true
+                              ? CircularProgressIndicator(
+                                  color: whiteColor,
+                                )
+                              : Text(
+                                  "Masuk",
+                                  style: whiteTextStyle.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                         ),
                       ),
                     ),
@@ -114,7 +133,7 @@ class SignInPage extends StatelessWidget {
           ),
 
           Container(
-            margin: EdgeInsets.only(top: 230, left: 20, right: 20),
+            margin: EdgeInsets.only(top: 200, left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -122,9 +141,15 @@ class SignInPage extends StatelessWidget {
                   "Belum Punya Akun ?",
                   style: greyTextStyle,
                 ),
-                Text(
-                  " Daftar",
-                  style: primaryTextStyle,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()));
+                  },
+                  child: Text(
+                    " Daftar",
+                    style: primaryTextStyle,
+                  ),
                 )
               ],
             ),
